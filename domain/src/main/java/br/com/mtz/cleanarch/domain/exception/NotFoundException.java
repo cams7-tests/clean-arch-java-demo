@@ -1,5 +1,6 @@
 package br.com.mtz.cleanarch.domain.exception;
 
+@SuppressWarnings("serial")
 public class NotFoundException extends RuntimeException {
 
     private String resourceName;

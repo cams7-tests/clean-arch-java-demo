@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:10
+    environment:
+      POSTGRES_PASSWORD: "Abc@12345"
+    ports:
+      - "15432:5432"
+    volumes:
+      - clean-arch-java-demo-data:/var/lib/postgresql/data 
+    networks:
+      - clean-arch-java-demo-network
+      
+  pgadmin:
+    image: dpage/pgadmin4:6.2
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@cams7.tests"
+      PGADMIN_DEFAULT_PASSWORD: "Abc@12345"
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres
+    networks:
+      - clean-arch-java-demo-network
+
+networks: 
+  clean-arch-java-demo-network:
+    driver: bridge
+
+volumes:
+  clean-arch-java-demo-data:

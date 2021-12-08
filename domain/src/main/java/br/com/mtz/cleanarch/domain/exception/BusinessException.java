@@ -1,5 +1,6 @@
 package br.com.mtz.cleanarch.domain.exception;
 
+@SuppressWarnings("serial")
 public class BusinessException extends RuntimeException {
 
     private String message;

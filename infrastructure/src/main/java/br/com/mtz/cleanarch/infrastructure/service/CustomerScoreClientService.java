@@ -2,7 +2,7 @@ package br.com.mtz.cleanarch.infrastructure.service;
 
 import br.com.mtz.cleanarch.domain.service.CustomerScoreService;
 import br.com.mtz.cleanarch.infrastructure.service.client.CustomerScoreClient;
-import br.com.mtz.cleanarch.infrastructure.service.client.request.CustomerScoreRequest;
+//import br.com.mtz.cleanarch.infrastructure.service.client.request.CustomerScoreRequest;
 import br.com.mtz.cleanarch.infrastructure.service.client.response.CustomerScoreResponse;
 import br.com.mtz.cleanarch.infrastructure.service.client.response.CustomerScoreStatusEnum;
 import javax.inject.Named;
@@ -18,7 +18,8 @@ public class CustomerScoreClientService implements CustomerScoreService {
 
     @Override
     public Boolean isApproved(String cpf) {
-        CustomerScoreResponse response = this.customerScoreClient.queryScore(new CustomerScoreRequest(cpf));
+        //CustomerScoreResponse response = this.customerScoreClient.queryScore(new CustomerScoreRequest(cpf));
+    	CustomerScoreResponse response = this.customerScoreClient.queryScore(cpf);
         if(response.getStatus() == CustomerScoreStatusEnum.APPROVED) {
             return true;
         } else {
